@@ -1,0 +1,387 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+*::before, *::after{
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --pink: #ff74a4;
+    --violet: #9f6ea3;
+    --lightblack: #515c6f;
+    --white: #ffffff;
+    --darkwhile: #cecaca;
+    --pinkshadow: #ffcbdd;
+    --lightbshadow: rgba(0,0,0,0.15);
+}
+
+@font-face {
+    font-family: 'SunwishMaverick';
+    src: url('Sunwish Maverick.otf') format('otf');
+}
+
+.tit p {
+    font-size: 32px;
+    margin-top: 5px;
+    color: #323F24;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #d8d9cc;
+    flex-direction: column;
+}
+
+a[href^="mailto:"] {
+    text-decoration: none;
+    color: rgb(103, 162, 100);
+    font-size: 20px;
+}
+
+h1 {
+    font-family: 'SunwishMaverick', sans-serif;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 20px;
+    color: black
+}
+
+.contr{
+    display: flex; flex-direction: row; width: 1200px; justify-content: space-between; padding-top: 20px;
+    margin-left: -40px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blk {
+    height: 1080px;
+    background-color: #0C140C;
+    width: 100%;
+    margin-top: 112px;
+    display: flex;
+    align-items: center;
+    align-items: var(--white);
+}
+
+.cn p {
+    color: #fff;
+    font-weight: 200;
+    line-height: 32px;
+}
+
+.cn img {
+    margin-top: 72px;
+}
+
+.wrapper{
+    width: 380px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    padding: 25px 30px;
+    background: #121212;
+    background: linear-gradient(#90AA5E, #475731, #1B2516, #121212);
+    box-shadow: 0px 6px 15px var(--lightbshadow);
+}
+
+.wrapper i{
+    cursor: pointer;
+}
+
+.top-bar, .progress-area .timer, .controls, .music-list .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar i{
+    font-size: 30px;
+    color: white;
+    opacity: 0.8;
+}
+
+.top-bar span{
+    font-size: 18px;
+    color: white;
+}
+
+.img-area{
+    height: 256px;
+    width:256px;
+    margin-top: 25px;
+    overflow: hidden;
+    box-shadow: 0px 6px 12px var(--lightbshadow);
+}
+
+.img-area img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.song-details{
+    text-align: center;
+    margin: 10px 0;
+    margin: 30px 0;
+    color: var(--lightblack);
+}
+
+.song-details .name{
+    font-size: 21px;
+    color: #ffffff;
+}
+
+.song-details .artist{
+    opacity: 0.9;
+    font-size: 18px;
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+.progress-area{
+    height: 6px;
+    width: 100%;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.progress-area .progress-bar{
+    height: inherit;
+    width: 0%;
+    position: relative;
+    border-radius: inherit;
+    background: #B2B2B2;
+    opacity: 0.8;
+}
+
+.progress-bar::before{
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: #000;
+    border-radius: inherit;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    background: inherit;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.progress-area:hover .progress-bar::before{
+    opacity: 1;
+}
+
+.progress-area .timer{
+    margin-top: 2px;
+}
+ 
+.timer span{
+    font-size: 13px;
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+.controls{
+    margin: 40px 0 5px 0;
+}
+
+.controls i{
+    font-size: 28px;
+    user-select: none;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.controls i:nth-child(2),
+.controls i:nth-child(4){
+    font-size: 43px;
+}
+
+.controls #prev{
+    margin-right: -13px;
+}
+
+.controls #next{
+    margin-left: -13px;
+}
+
+.controls .play-pause{
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.play-pause{
+    background: #fff;
+}
+
+.music-list{
+    position: absolute;
+    left: 0;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
+    transition: all 0.14s ease-out;
+    background: #121212;
+}
+
+.music-list.show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto; 
+}
+
+.music-list .header .row{
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+.header .row i{
+    cursor: default;
+}
+
+.header .row span{
+    margin-left: 5px; 
+}
+.header #close{
+    font-size: 22px;
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+.music-list ul{
+    margin: 10px 0;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.music-list ul::-webkit-scrollbar{
+    width: 0px;
+}
+.music-list li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.music-list ul li{
+    cursor: pointer;
+    list-style: none;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #383838;
+}
+
+.music-list ul li:last-child{
+    border-bottom: 15px;
+}
+.music-list ul li .row span{
+    font-size: 17px;
+    color: #ffffff;
+}
+
+.music-list ul li .row p{
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+ul li .audio-duration{
+    font-size: 16px;
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+ul li.playing{
+    color: #1DB954;
+}
+.img-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+dialog{
+    height: 200px;
+    width: 300px;
+    background: #515c6f;
+    border-radius: 16px;
+    opacity: 0.5;
+    margin-left: 250px;
+
+}
+
+dialog i {
+    cursor: pointer;
+}
+
+#text{
+    font-size: 24px;
+}
+
+
+.lyrics{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
+    transition: all 0.14s ease-out;
+    background: #121212;
+}
+
+.lyrics.show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto; 
+}
+
+.lyrics .text{
+    margin: 10px 0;
+    max-height: 260px;
+    overflow-y: auto;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.header-txt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 19px;
+    color: #b3b3bb;
+    opacity: 0.6;
+}
+
+
